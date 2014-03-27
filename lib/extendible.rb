@@ -13,6 +13,7 @@ module Extendible
     scope[:extend].split(',').map(&:strip).each do |object_name|
       if object_name.include?('.') # dot found, split into object and attribute
         obj, attr = object_name.split('.')
+        all[obj.to_sym] = ['id'] unless all.has_key?(obj.to_sym)
         if all.has_key?(obj.to_sym) # object already has attributes specified, add attribute to array
           all[obj.to_sym] << attr
         else # first attribute for array, initialize array with attribute

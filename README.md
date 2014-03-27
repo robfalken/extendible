@@ -74,9 +74,12 @@ Or, if you would like to only get the username, use dot notation `?extend=author
     {
       ...
       "author": {
+        "id": 1,
         "username": "robertfalken"
       }
     }
+
+You also can extend multiple objects or attributes by comma separating them `?extend=author.username,category`    
 
 ## Contributing
 
