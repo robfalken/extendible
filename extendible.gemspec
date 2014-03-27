@@ -6,10 +6,10 @@ require 'extendible/version'
 Gem::Specification.new do |spec|
   spec.name          = "extendible"
   spec.version       = Extendible::VERSION
-  spec.authors       = ["Robert Falkén"]
-  spec.email         = ["robert@robertfalken.se"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.authors       = ["Robert Falkén"]
+  spec.email         = ["f@lken.se"]
+  spec.description   = %q{Makes ActiveModel::Serializer objects extendible by query parameters}
+  spec.summary       = %q{Serializer extension}
   spec.homepage      = ""
   spec.license       = "MIT"
 
