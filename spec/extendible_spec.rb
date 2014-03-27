@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'active_model_serializers'
+
 
 class TestSerializer < ActiveModel::Serializer
   include Extendible
@@ -7,7 +7,7 @@ end
 
 
 describe Extendible do
-	it 'responds to extendible' do
+  it 'responds to extendible' do
     expect(TestSerializer.respond_to?(:extendible)).to be_true
   end
 
