@@ -2,8 +2,7 @@
 
 Make referenced objects in your API only include ID attribute by default, and extend them using URL parameters.
 
-e.g.
-    {endpoint}?extend=author.name,author.email
+e.g. `{endpoint}?extend=author.name,author.email`
 
 ## Installation
 
