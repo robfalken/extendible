@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Extendible::VERSION
   spec.authors       = ["Robert Falkén"]
   spec.email         = ["f@lken.se"]
-  spec.description   = %q{Makes ActiveModel::Serializer objects extendible by query parameters}
+  spec.description   = %q{Makes ActiveModel::Serializer objects extendible by URL parameters}
   spec.summary       = %q{Serializer extension}
   spec.homepage      = ""
   spec.license       = "MIT"
