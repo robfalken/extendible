@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["f@lken.se"]
   spec.description   = %q{Makes ActiveModel::Serializer objects extendible by URL parameters}
   spec.summary       = %q{Serializer extension}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/robertfalken/extendible"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
