@@ -9,7 +9,7 @@ module Extendible
   def extended_objects
     return @extended_objects unless @extended_objects.nil?
     # empty array if no params[:extend] is provided
-    return [] if scope[:extend].nil?
+    return {} if scope[:extend].nil?
     all = {}
     # iterate comma separated list of objects to extend
     scope[:extend].split(',').map(&:strip).each do |object_name|
