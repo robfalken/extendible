@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Extendible do
+
   it 'responds to extendible' do
     expect(MyObjectSerializer.respond_to?(:extendible)).to be_true
   end

@@ -1,19 +1,6 @@
 class Reference
-  attr_accessor :title, :description, :secret
-
-  def initialize
-    @title = 'I\'m an object'
-    @description = 'Just a description'
-    @secret = 'this is secret'
-  end
-
-  def as_json
-    {
-      title: @title,
-      description: @description,
-      secret: @secret
-    }
-  end
+  include ActiveModel::Model
+  attr_accessor :id, :title, :description, :secret
 end
 
 class EntitledRef < Reference
@@ -23,19 +10,22 @@ class PoorRef < Reference
 end
 
 class MyObject
+  include ActiveModel::Model
   attr_accessor :entitled_ref, :poor_ref
 
   def initialize
-    @entitled_ref = EntitledRef.new
-    @poor_ref = PoorRef.new
+    @entitled_ref = EntitledRef.new(id: 1, title: 'I\'m entitled', description: 'Just a description', secret: 'super secret')
+    @poor_ref = PoorRef.new(id: 2, title: 'I\'m poor', description: 'Just a description', secret: 'super secret')
   end
 end
 
 class MyObjectSerializer < ActiveModel::Serializer
   include Extendible
+  extendible :entitled_ref, :poor_ref
 end
 
 class EntitledRefSerializer < ActiveModel::Serializer
   include Extendible
   attributes :title, :description
+  extendible :entitled_ref, :poor_ref
 end
