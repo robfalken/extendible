@@ -29,7 +29,7 @@ module Extendible
     @extended_objects = all
   end
 
-  def serialize(object, child_sym)
+  def perform_serialization(object, child_sym)
     serializer_name = "#{child_sym.to_s.camelize}Serializer"              
     serializer_name.constantize.new(object.try(child_sym)) rescue object.try(child_sym)
   end
@@ -44,9 +44,9 @@ module Extendible
           return nil if object.try(child_sym).nil?
           if extended_objects.has_key?(child_sym) # params[:extend] includes child, extend attributes
             if extended_objects[child_sym].nil? # no attributes are specified, extend with all
-              serialize(object, child_sym).as_json
+              perform_serialization(object, child_sym).as_json
             else # only extend with attributes provided with dot notation
-              serialized_object = serialize(object, child_sym)
+              serialized_object = perform_serialization(object, child_sym)
               mapper = (serialized_object.class < ActiveModel::Serializer) ? :to_sym : :to_s
               serialized_object.attributes.extract!(*extended_objects[child_sym].map(&mapper))            
             end
